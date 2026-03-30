@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # overdue SwiftUI 子项目
 
 与 `overdue-miniUI`（uni-app）功能对齐的 **iOS 原生架构骨架**：业务逻辑在 **OverdueKit**（Swift Package），入口在 **OverdueApp**。
@@ -54,3 +55,6 @@ overdue-swiftui/
 2. 用 `NavigationPath` + `AppRoute` 替换 Feature 内占位 `NavigationLink` 文案。
 3. 深链：对齐小程序 `inviteCode` → `SessionStore.pendingInviteCode` + `onOpenURL`。
 4. 主题：用 `preferredColorScheme` 与 `AppStorage` 对齐 `theme.js`。
+=======
+# overdueApp
+>>>>>>> be569f0ab5bf850f6c57e45a5fcd167f7ce42335
