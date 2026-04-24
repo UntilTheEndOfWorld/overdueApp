@@ -5,6 +5,9 @@ import Observation
 @MainActor
 @Observable
 public final class SessionStore {
+    /// 开发开关：在 DEBUG 下允许直接跳过登录页，便于先验收页面与交互。
+    public static var skipLoginInDebug = true
+
     public var isLoggedIn: Bool
     /// 业务接口使用的 Bearer（应由服务端登录接口签发，**不要用 Apple 的 identityToken 长期直连业务 API**）。
     public var accessToken: String?
@@ -26,9 +29,16 @@ public final class SessionStore {
         appleIdentityToken: String? = nil,
         appleEmail: String? = nil
     ) {
+        #if DEBUG
+        let shouldSkipLogin = SessionStore.skipLoginInDebug
+        self.isLoggedIn = shouldSkipLogin ? true : isLoggedIn
+        self.accessToken = shouldSkipLogin ? (accessToken ?? "debug-skip-login-token") : accessToken
+        self.userId = shouldSkipLogin ? (userId ?? "debug-user") : userId
+        #else
         self.isLoggedIn = isLoggedIn
         self.accessToken = accessToken
         self.userId = userId
+        #endif
         self.pendingInviteCode = pendingInviteCode
         self.appleUserIdentifier = appleUserIdentifier
         self.appleIdentityToken = appleIdentityToken
