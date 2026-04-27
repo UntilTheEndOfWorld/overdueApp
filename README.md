@@ -2,6 +2,7 @@
 # overdue SwiftUI 子项目
 
 与 `overdue-miniUI`（uni-app）功能对齐的 **iOS 原生架构骨架**：业务逻辑在 **OverdueKit**（Swift Package），入口在 **OverdueApp**。
+后续会逐步更新
 
 ## 目录结构
 
